@@ -75,6 +75,24 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         vpGuide.setAdapter(adpter);
         //设置滑动的监听
         vpGuide.setOnPageChangeListener(this);
+
+        //加载底部的小圆点
+        viewGroup = (ViewGroup) findViewById(R.id.guide_ll_point);
+        img_pointArray = new ImageView[viewList.size()];
+        for (int i = 0; i < viewList.size(); i++) {
+            img_point = new ImageView(this);
+            img_point.setLayoutParams(new ViewGroup.LayoutParams(50, 50));
+            img_point.setPadding(30, 0, 30, 0);
+            img_pointArray[i] = img_point;
+            if (i == 0) {
+                img_point.setBackgroundResource(R.drawable.point_end);
+            } else {
+                img_point.setBackgroundResource(R.drawable.point_start);
+            }
+            //将数组中的ImageView加入到ViewGroup
+            viewGroup.addView(img_pointArray[i]);
+        }
+
     }
 
 
@@ -85,6 +103,21 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
 
     @Override
     public void onPageSelected(int position) {
+        //循环设置当前页的标记图
+        int length = imgArray.length;
+        for (int i = 0; i < length; i++) {
+            img_pointArray[position].setBackgroundResource(R.drawable.point_end);
+            if (position != i) {
+                img_pointArray[i].setBackgroundResource(R.drawable.point_start);
+            }
+        }
+
+        //判断是否是最后一页，若是则显示按钮
+        if (position == imgArray.length - 1) {
+            btn_start.setVisibility(View.VISIBLE);
+        } else {
+            btn_start.setVisibility(View.GONE);
+        }
 
     }
 
