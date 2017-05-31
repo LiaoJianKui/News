@@ -37,6 +37,8 @@
         </activity>
 
         <activity android:name=".Activity.ReadActivity"/>
+        <activity android:name=".Activity.TopActivity"/>
+        <activity android:name=".NewsApplication"/>
     </application>
 
 </manifest>

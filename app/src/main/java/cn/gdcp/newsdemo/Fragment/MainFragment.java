@@ -1,39 +1,56 @@
-package cn.gdcp.newsdemo.Activity;
+package cn.gdcp.newsdemo.Fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import cn.gdcp.newsdemo.Fragment.NewsFragment;
 import cn.gdcp.newsdemo.R;
 
+import static cn.gdcp.newsdemo.R.layout.activity_main;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Administrator on 2017/5/27 0027.
+ */
+
+public class MainFragment extends Fragment {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private PagerAdapter mPagerAdapter;
     private ArrayList<NewsFragment> mFragmentArrayList;
     private ArrayList<String> mTitleList;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         initFragmentArrayList();
         initTitleList();
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mPagerAdapter=new cn.gdcp.newsdemo.Adapter.PagerAdapter(getSupportFragmentManager(),mFragmentArrayList,mTitleList);
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view=inflater.inflate(activity_main,container,false);
+        mTabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
+
+        if(mPagerAdapter==null){
+            mPagerAdapter=new cn.gdcp.newsdemo.Adapter.PagerAdapter(getFragmentManager(), mFragmentArrayList, mTitleList);
+        }
+
+        mPagerAdapter=new cn.gdcp.newsdemo.Adapter.PagerAdapter(getFragmentManager(),mFragmentArrayList,mTitleList);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setOffscreenPageLimit(4);
         mTabLayout.setupWithViewPager(mViewPager);
+        return view;
     }
 
     private void initTitleList() {
@@ -75,4 +92,5 @@ public class MainActivity extends AppCompatActivity {
         mFragmentArrayList.add(keji);
 
     }
+
 }

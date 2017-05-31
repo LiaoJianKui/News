@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import cn.gdcp.newsdemo.Adapter.TopAdapter;
 import cn.gdcp.newsdemo.R;
 import cn.gdcp.newsdemo.Utils.SPUtils;
 
@@ -25,7 +26,7 @@ public class WelcomeActivity extends AppCompatActivity{
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                    startActivity(new Intent(WelcomeActivity.this, TopActivity.class));
                     finish();
                 }
             }, 3000);
