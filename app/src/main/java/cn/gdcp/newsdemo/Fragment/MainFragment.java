@@ -48,8 +48,9 @@ public class MainFragment extends Fragment {
 
         mPagerAdapter=new cn.gdcp.newsdemo.Adapter.PagerAdapter(getFragmentManager(),mFragmentArrayList,mTitleList);
         mViewPager.setAdapter(mPagerAdapter);
-        mViewPager.setOffscreenPageLimit(4);
+
         mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setOffscreenPageLimit(4);
         return view;
     }
 

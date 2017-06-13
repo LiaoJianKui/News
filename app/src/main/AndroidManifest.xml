@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cn.gdcp.newsdemo">
     <!--允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,9 +16,11 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="新闻"
+        tools:replace="android:label"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MainActivity">
@@ -29,6 +32,11 @@
 
         </activity>
         <activity android:name=".Activity.WelcomeActivity">
+
+        </activity>
+
+        <activity android:name=".Activity.ReadActivity"/>
+        <activity android:name=".Activity.TopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,8 +44,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.ReadActivity"/>
-        <activity android:name=".Activity.TopActivity"/>
         <activity android:name=".NewsApplication"/>
     </application>
 

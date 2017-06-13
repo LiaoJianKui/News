@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.gdcp.newsdemo.Adapter.TopAdapter;
+import cn.gdcp.newsdemo.Fragment.ChooseAreaFragment;
 import cn.gdcp.newsdemo.Fragment.JokeFragment;
 import cn.gdcp.newsdemo.Fragment.MainFragment;
 import cn.gdcp.newsdemo.Fragment.MyFragment;
@@ -128,7 +129,8 @@ public class TopActivity extends FragmentActivity {
         JokeFragment jf = new JokeFragment();
         topFragmentList.add(jf);
 
-        WeatherFragment wf = new WeatherFragment();
+//        WeatherFragment wf = new WeatherFragment();
+        ChooseAreaFragment wf=new ChooseAreaFragment();
         topFragmentList.add(wf);
 
         MyFragment myf = new MyFragment();
