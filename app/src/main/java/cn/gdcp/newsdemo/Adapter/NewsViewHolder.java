@@ -14,12 +14,10 @@ public class NewsViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
     TextView title;
-    View view;
 
 
     public NewsViewHolder(View itemView) {
         super(itemView);
-        view=itemView;
         imageView= (ImageView) itemView.findViewById(R.id.imgView);
         title= (TextView) itemView.findViewById(R.id.titleView);
     }

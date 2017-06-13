@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.gdcp.newsdemo.Adapter.NewsAdapter;
-import cn.gdcp.newsdemo.Data.NewsData;
+import cn.gdcp.newsdemo.Bean.NewsData;
 import cn.gdcp.newsdemo.R;
 import okhttp3.Call;
 import okhttp3.Callback;
